@@ -212,11 +212,18 @@ public class RC4View extends JPanel {
     }
 
     public void encryption() {
-        
+        rc4.setPlain_text(jTextArea_plain.getText());
+        rc4.setKey(Integer.parseInt(key.getText()));
+        rc4.encryption();
+        jTextArea_cipher.setText(rc4.getCipherText());
+        rc4.resetCipherText();
     }
 
     public void decryption() {
-
+        rc4.setPlain_text(jTextArea_plain.getText());
+        rc4.setKey(Integer.parseInt(key.getText()));
+        rc4.decryption();
+        jTextArea_cipher.setText(rc4.getCipherText());
+        rc4.resetCipherText();
     }
-
 }

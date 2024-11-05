@@ -16,9 +16,9 @@ public class RC4Listener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String src = e.getActionCommand();// lấy chuỗi tên button
         if (src.equals("Encryption")) { // nếu là nút Decryption
-            System.out.println("encryption_RC4");
+            rc4View.encryption();
         } else if (src.equals("Decryption")) {// nếu là nút Decryption
-            System.out.println("decryption_RC4");
+            rc4View.decryption();
         }
     }
 

@@ -1,7 +1,7 @@
 package model;
 
 public class RC4 {
-    private String plain_text = "011000000"; // Văn bản gốc
+    private String plain_text; // Văn bản gốc
     private String key; // Khóa
     private int[] S; // Mảng trạng thái
     private int[] key_list; // Danh sách khóa
@@ -22,7 +22,7 @@ public class RC4 {
     }
 
     public void setKey(int key) {
-        this.key = Integer.toBinaryString(key); // Chuyển đổi số nguyên sang chuỗi nhị phân
+       this.key = Integer.toBinaryString(key); // Chuyển đổi số nguyên sang chuỗi nhị phân
     }
 
     public String getCipherText() {
@@ -84,7 +84,7 @@ public class RC4 {
     }
 
     // Điều chỉnh danh sách khóa
-    private void adjustKeyList() {
+    public void adjustKeyList() {
         int diff = S.length - key_list.length;
         if (diff > 0) {
             int[] new_key_list = new int[S.length];
@@ -149,9 +149,6 @@ public class RC4 {
             // Chuyển đổi thành chuỗi nhị phân và đảm bảo độ dài là 3
             result += String.format("%03d", Integer.parseInt(Integer.toBinaryString(cipherTextArray[i])));
         }
-
-        // Kết quả mã hóa
-        System.out.println("Cipher text : " + result);
         return result; // Trả về kết quả mã hóa để lưu vào cipherText
     }
 
@@ -166,5 +163,9 @@ public class RC4 {
         }
 
         return decimalList;
+    }
+
+    public void resetCipherText() {
+        this.setCipherText("");
     }
 }
