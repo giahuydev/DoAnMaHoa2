@@ -85,6 +85,7 @@ public class TinyA51View extends JPanel {
         ac = new TinyA51Listener(this);
 
         tinyA51 = new TinyA51();
+
         font = new Font("Arial", Font.BOLD, 15);
         jPanel_BackGround.setLayout(new GridBagLayout());// setlayout cho jPanel_BackGround
         gbc = new GridBagConstraints();
@@ -221,13 +222,20 @@ public class TinyA51View extends JPanel {
 
     public void random() {
 
+        key.setText(tinyA51.random());
+        System.out.println(key.getText());
     }
 
     public void encryption() {
 
+        tinyA51.setKey(key.getText());
+        jTextArea_cipher.setText(tinyA51.encrypt(jTextArea_plain.getText()));
+
     }
 
     public void decryption() {
-
+        tinyA51.setKey(key.getText());
+        jTextArea_cipher.setText(tinyA51.decrypt(jTextArea_plain.getText()));
+        System.err.println(tinyA51.decrypt(jTextArea_plain.getText()));
     }
 }

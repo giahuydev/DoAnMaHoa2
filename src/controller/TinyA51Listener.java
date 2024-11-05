@@ -15,11 +15,13 @@ public class TinyA51Listener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String src = e.getActionCommand();
         if (src.equals("Random")) {
-
+            tinyA51View.random();
         } else if (src.equals("Encryption")) {
             System.out.println("Encryption_TinyA51");
+            tinyA51View.encryption();
         } else if (src.equals("Decryption")) {
             System.out.println("Encryption_TinyA51");
+            tinyA51View.decryption();
         }
     }
 
