@@ -212,7 +212,7 @@ public class RC4View extends JPanel {
     }
 
     public void encryption() {
-
+        
     }
 
     public void decryption() {
