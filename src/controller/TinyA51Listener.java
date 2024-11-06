@@ -17,10 +17,8 @@ public class TinyA51Listener implements ActionListener {
         if (src.equals("Random")) {
             tinyA51View.random();
         } else if (src.equals("Encryption")) {
-            System.out.println("Encryption_TinyA51");
             tinyA51View.encryption();
         } else if (src.equals("Decryption")) {
-            System.out.println("Encryption_TinyA51");
             tinyA51View.decryption();
         }
     }
