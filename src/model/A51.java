@@ -2,7 +2,7 @@ package model;
 
 import java.util.Random;
 
-public class TinyA51 {
+public class A51 {
     private String key = null;
     static final int REG_X_LENGTH = 19;
     static final int REG_Y_LENGTH = 22;
@@ -11,8 +11,8 @@ public class TinyA51 {
     int[] regY = new int[REG_Y_LENGTH];
     int[] regZ = new int[REG_Z_LENGTH];
 
-    public TinyA51() {
-
+    public A51() {
+        // ?
     }
 
     public void loadRegisters(String key) {

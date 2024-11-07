@@ -18,7 +18,7 @@ public class MainWindow extends JFrame {
 
     // panel và các nút
     private JPanel jPanel;
-    private JButton jButton_TinyA5;
+    private JButton jButton_A5;
     private JButton jButton_RC4;
 
     // hành động để tương tác
@@ -39,7 +39,7 @@ public class MainWindow extends JFrame {
 
         // khởi tạo toolbar và các button
         jToolBar = new JToolBar();
-        jButton_TinyA5 = new JButton("Tiny A5/1");
+        jButton_A5 = new JButton("A5/1");
         jButton_RC4 = new JButton("RC4");
 
         // khởi tạo jpanel
@@ -49,15 +49,15 @@ public class MainWindow extends JFrame {
         ac = new MainWindowAction(this);
 
         // gán hành động khi người dùng tương tác vào
-        jButton_TinyA5.addActionListener(ac);
+        jButton_A5.addActionListener(ac);
         jButton_RC4.addActionListener(ac);
 
         // chỉnh màu cho các nút ấn
-        jButton_TinyA5.setBackground(Color.lightGray);
+        jButton_A5.setBackground(Color.lightGray);
         jButton_RC4.setBackground(Color.lightGray);
 
         // thêm các button vào thanh công cụ
-        jToolBar.add(jButton_TinyA5);
+        jToolBar.add(jButton_A5);
         jToolBar.add(jButton_RC4);
         // chỉnh layout theo kiểu đông tây nam bắc chính giữa
         this.setLayout(new BorderLayout());
@@ -85,14 +85,14 @@ public class MainWindow extends JFrame {
     }
 
     // nút nào được nhấn thì set lại màu cho nút(jbutton) đó
-    public void setjButton_TinyA5() {
-        jButton_TinyA5.setBackground(Color.GREEN);
+    public void setjButton_A5() {
+        jButton_A5.setBackground(Color.GREEN);
         jButton_RC4.setBackground(Color.lightGray);
 
     }
 
     public void setjButton_RC4() {
-        jButton_TinyA5.setBackground(Color.lightGray);
+        jButton_A5.setBackground(Color.lightGray);
         jButton_RC4.setBackground(Color.GREEN);
     }
 

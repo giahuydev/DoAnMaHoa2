@@ -5,17 +5,17 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import controller.TinyA51Listener;
-import model.TinyA51;
+import controller.A51Listener;
+import model.A51;
 
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
-public class TinyA51View extends JPanel {
+public class A51View extends JPanel {
     // khai báo các thuộc tính
     private Font font;
-    private TinyA51 tinyA51;
+    private A51 tinyA51;
     private GridBagConstraints gbc;
 
     private JTextArea jTextArea_plain;
@@ -53,7 +53,7 @@ public class TinyA51View extends JPanel {
     // -------------------------------------------
 
     // khởi tạo panel PlayFairView
-    public TinyA51View() {
+    public A51View() {
         // tạo background
         BufferedImage backgroundImage;// backgroundImage để lưu lại hình ảnh
         try {
@@ -82,9 +82,9 @@ public class TinyA51View extends JPanel {
             }
         };
         // khởi tạo các thuộc tính đã khai báo
-        ac = new TinyA51Listener(this);
+        ac = new A51Listener(this);
 
-        tinyA51 = new TinyA51();
+        tinyA51 = new A51();
 
         font = new Font("Arial", Font.BOLD, 15);
         jPanel_BackGround.setLayout(new GridBagLayout());// setlayout cho jPanel_BackGround
@@ -221,21 +221,42 @@ public class TinyA51View extends JPanel {
     }
 
     public void random() {
-
         key.setText(tinyA51.random());
-        System.out.println(key.getText());
     }
 
     public void encryption() {
 
-        tinyA51.setKey(key.getText());
-        jTextArea_cipher.setText(tinyA51.encrypt(jTextArea_plain.getText()));
+        try {
+            if (!tinyA51.setKey(key.getText())) {
+                JOptionPane.showMessageDialog(this, "Key không hợp lệ", "Lỗi",
+                        JOptionPane.ERROR_MESSAGE);
+                        jTextArea_cipher.setText("");
+            }else{
+                jTextArea_cipher.setText(tinyA51.encrypt(jTextArea_plain.getText()));
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Nhập không hợp lệ", "Lỗi",
+                    JOptionPane.ERROR_MESSAGE);
+                    jTextArea_cipher.setText("");
+        }
 
     }
 
     public void decryption() {
-        tinyA51.setKey(key.getText());
-        jTextArea_cipher.setText(tinyA51.decrypt(jTextArea_plain.getText()));
-        System.err.println(tinyA51.decrypt(jTextArea_plain.getText()));
+        try {
+            if (!tinyA51.setKey(key.getText())) {
+                JOptionPane.showMessageDialog(this, "Key không hợp lệ", "Lỗi",
+                        JOptionPane.ERROR_MESSAGE);
+                        jTextArea_cipher.setText("");
+            }else{
+                jTextArea_cipher.setText(tinyA51.decrypt(jTextArea_plain.getText()));
+            }
+           
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Nhập không hợp lệ", "Lỗi",
+                    JOptionPane.ERROR_MESSAGE);
+                    jTextArea_cipher.setText("");
+        }
     }
 }
